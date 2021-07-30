@@ -21,27 +21,14 @@ function! quotem#attr()
   return ''
 endfunction
 
-function! quotem#_get_marked_text_lines(start_mark, end_mark)
-  let [line_start, column_start] = getpos(a:start_mark)[1:2]
-  let [line_end, column_end] = getpos(a:end_mark)[1:2]
-  let l:marked = getline(line_start, line_end)
-  if len(l:marked) == 0
-    return []
+function! quotem#copy_with(label, contents)
+  let l:lines = []
+  if len(a:label) !=# ''
+    call add(l:lines, a:label)
   endif
-  let l:marked[-1] = trim(l:marked[-1][: column_end - 1])
-  if l:marked[-1] ==# ''
-    if len(l:marked) == 1
-      return []
-    endif
-    let l:marked = l:marked[:-2]
-  endif
-
-  let l:marked[0] = trim(l:marked[0][column_start - 1:])
-  if l:marked[0] ==# ''
-    if len(l:marked) == 1
-      return []
-    endif
-    let l:marked = l:marked[1:]
-  endif
-  return l:marked
+  call add(l:lines, '```' .. quotem#attr())
+  call extend(l:lines, a:contents)
+  call add(l:lines, '```')
+  call add(l:lines, '')
+  call setreg('+', join(l:lines, "\n"))
 endfunction
