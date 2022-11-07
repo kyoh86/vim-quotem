@@ -24,21 +24,25 @@ COMMANDS                                               *quotem-command*
 
         Quote selected text as markdown codeblock and send it to register.
 
+                                                             *:QuotemNamed*
 :[range]QuotemNamed
 
         Quote selected text as markdown codeblock and send it to register
         with a name of the buffer.
 
+                                                         *:QuotemTailnamed*
 :[range]QuotemTailnamed
 
         Quote selected text as markdown codeblock and send it to register
         with a last path component of the buffer.
 
+                                                         *:QuotemFullnamed*
 :[range]QuotemFullnamed
 
         Quote selected text as markdown codeblock and send it to register
         with a full path of the buffer.
 
+                                                            *:QuotemGithub*
 :[range]QuotemGithub
 
         Quote selected text as markdown codeblock and send it to register
