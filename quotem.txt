@@ -1,0 +1,48 @@
+*quotem.txt* Quote selected text as markdown codeblock and send it to register.
+
+Author: kyoh86 <me@kyoh86.dev>
+License: MIT license
+
+===============================================================================
+CONTENTS                                               *quotem-contents*
+
+USAGE                                                  |quotem-usage|
+  COMMANDS                                             |quotem-command|
+
+===============================================================================
+USAGE                                                  *quotem-usage*
+
+*quotem* provides functions or commands to quote selected text as markdown
+codeblock and send it to register.
+
+
+-------------------------------------------------------------------------------
+COMMANDS                                               *quotem-command*
+
+                                                             *:QuotemBare*
+:[range]QuotemBare
+
+        Quote selected text as markdown codeblock and send it to register.
+
+:[range]QuotemNamed
+
+        Quote selected text as markdown codeblock and send it to register
+        with a name of the buffer.
+
+:[range]QuotemTailnamed
+
+        Quote selected text as markdown codeblock and send it to register
+        with a last path component of the buffer.
+
+:[range]QuotemFullnamed
+
+        Quote selected text as markdown codeblock and send it to register
+        with a full path of the buffer.
+
+:[range]QuotemGithub
+
+        Quote selected text as markdown codeblock and send it to register
+        with a GitHub URL of the buffer.
+
+
+vim:filetype=help
