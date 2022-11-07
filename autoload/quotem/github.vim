@@ -1,3 +1,8 @@
 function quotem#github#get_url()
-  return trim(system('gh browse --no-browser ' .. expand('%')))
+    let l:proc = [
+        \     'cd', shellescape(expand('%:p:h')),
+        \     '&&',
+        \     'gh', 'browse', '--no-browser', shellescape(expand('%:t')),
+        \ ]
+  return trim(system(join(l:proc, ' ')))
 endfunction
