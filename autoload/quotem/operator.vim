@@ -1,21 +1,25 @@
 function! quotem#operator#bare(motion_wiseness)
-  call s:copy_with('', {_1, _2 -> ''})
+  call s:copy_with("", {_1, _2 -> ""})
 endfunction
 
 function! quotem#operator#named(motion_wiseness)
-  call s:copy_with(expand('%'), {line1, _ -> s:local_line(line1)})
+  call s:copy_with(expand("%"), {line1, _ -> s:local_line(line1)})
 endfunction
 
 function! quotem#operator#tailnamed(motion_wiseness)
-  call s:copy_with(expand('%:t'), {line1, _ -> s:local_line(line1)})
+  call s:copy_with(expand("%:t"), {line1, _ -> s:local_line(line1)})
 endfunction
 
 function! quotem#operator#fullnamed(motion_wiseness)
-  call s:copy_with(expand('%:p'), {line1, _ -> s:local_line(line1)})
+  call s:copy_with(expand("%:p"), {line1, _ -> s:local_line(line1)})
 endfunction
 
 function! quotem#operator#github(motion_wiseness)
-  call s:copy_with(quotem#github#get_url(), s:url_line)
+  call s:copy_with(quotem#github#get_url("branch", "%"), s:url_line)
+endfunction
+
+function! quotem#operator#github_commit(motion_wiseness)
+  call s:copy_with(quotem#github#get_url("head", "%"), s:url_line)
 endfunction
 
 function! s:copy_with(label, marker)
